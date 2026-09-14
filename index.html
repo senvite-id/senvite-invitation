@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<title>SENVITE.ID — Digital Wedding Invitation</title>
+<meta name="description" content="SENVITE menghadirkan undangan pernikahan video sinematik dengan web cover pembuka personal nama tamu unlimited yang elegan dan praktis.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          ivory: '#FAF7F2',
+          cream: '#F4EFEA',
+          charcoal: '#231821',
+          slate: '#6B6258',
+          violet: { DEFAULT: '#4A154B', dark: '#3B123D' },
+          gold: { DEFAULT: '#D4AF37', soft: '#C5A880' },
+          emerald: '#2D6A4F'
+        },
+        fontFamily: {
+          sans: ['Poppins', 'sans-serif']
+        }
+      }
+    }
+  }
+</script>
+
+<style>
+  html, body { 
+    max-width: 100%;
+    overflow-x: hidden !important; 
+    position: relative;
+  }
+  body { 
+    font-family: 'Poppins', sans-serif; 
+    background-color: #FAF7F2;
+    background-image: 
+      radial-gradient(at 15% 15%, rgba(74, 21, 75, 0.08) 0px, transparent 50%),
+      radial-gradient(at 85% 25%, rgba(212, 175, 55, 0.12) 0px, transparent 50%),
+      radial-gradient(at 50% 80%, rgba(74, 21, 75, 0.06) 0px, transparent 60%);
+    background-attachment: fixed;
+    -webkit-tap-highlight-color: transparent;
+  }
+  ::selection { background: #4A154B; color: #FAF7F2; }
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: #F4EFEA; }
+  ::-webkit-scrollbar-thumb { background: #C5A880; border-radius: 999px; }
+
+  /* Glassmorphism Styles */
+  .glass-nav {
+    background: rgba(250, 247, 242, 0.90);
+    backdrop-filter: blur(20px) saturate(160%);
+    -webkit-backdrop-filter: blur(20px) saturate(160%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+  }
+
+  .glass-card {
+    background: rgba(255, 255, 255, 0.72);
+    backdrop-filter: blur(16px) saturate(140%);
+    -webkit-backdrop-filter: blur(16px) saturate(140%);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    box-shadow: 0 8px 24px -4px rgba(35, 24, 33, 0.06);
+  }
+
+  .glass-card-dark {
+    background: rgba(35, 24, 33, 0.90);
+    backdrop-filter: blur(20px) saturate(150%);
+    -webkit-backdrop-filter: blur(20px) saturate(150%);
+    border: 1px solid rgba(212, 175, 55, 0.35);
+  }
+
+  .glass-card-violet {
+    background: rgba(74, 21, 75, 0.94);
+    backdrop-filter: blur(20px) saturate(160%);
+    -webkit-backdrop-filter: blur(20px) saturate(160%);
+    border: 1px solid rgba(212, 175, 55, 0.6);
+  }
+
+  .glass-input {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(35, 24, 33, 0.15);
+  }
+
+  .gold-rule { height: 2px; background: linear-gradient(90deg, #D4AF37, transparent); }
+
+  .fade-swap { transition: opacity .22s ease; }
+  .fade-swap.is-fading { opacity: 0; }
+
+  .accordion-panel { max-height: 0; overflow: hidden; transition: max-height .4s ease; }
+  .accordion-panel.is-open { max-height: 800px; }
+  .faq-chevron { transition: transform .3s ease; }
+  .faq-chevron.is-open { transform: rotate(180deg); }
+
+  .filter-tab { transition: background-color .2s ease, color .2s ease, border-color .2s ease; }
+
+  .wa-pulse::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 999px;
+    background: #25D366;
+    animation: wa-ping 2.4s cubic-bezier(0,0,.2,1) infinite;
+  }
+  @keyframes wa-ping {
+    0% { transform: scale(1); opacity: .55; }
+    75%, 100% { transform: scale(1.9); opacity: 0; }
+  }
+
+  .hero-rise { animation: hero-rise .7s cubic-bezier(.16,1,.3,1) both; }
+  .hero-rise-1 { animation-delay: .05s; }
+  .hero-rise-2 { animation-delay: .15s; }
+  .hero-rise-3 { animation-delay: .25s; }
+  .hero-rise-4 { animation-delay: .35s; }
+  @keyframes hero-rise {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  input:focus-visible, select:focus-visible, button:focus-visible, a:focus-visible {
+    outline: 2px solid #D4AF37;
+    outline-offset: 1px;
+  }
+</style>
+</head>
+
+<body id="top" class="text-charcoal antialiased text-[14px] sm:text-base">
+
+<!-- ============ HEADER / NAVBAR ============ -->
+<header id="siteHeader" class="fixed top-0 inset-x-0 z-50 glass-nav transition-shadow duration-300">
+  <div class="max-w-7xl mx-auto px-3.5 sm:px-8">
+    <div class="flex items-center justify-between h-[62px] sm:h-[74px]">
+      <a href="#top" class="flex items-center gap-2 shrink-0">
+        <img src="logo.png" alt="Senvite Logo" class="h-8 sm:h-10 w-auto object-contain">
+        <span class="flex flex-col leading-[1.05]">
+          <span class="text-sm sm:text-lg font-extrabold tracking-tight text-violet">SENVITE.ID</span>
+          <span class="text-[8px] sm:text-[9.5px] text-slate tracking-[0.16em]">Invitation</span>
+        </span>
+      </a>
+
+      <nav class="hidden lg:flex items-center gap-6 xl:gap-8 text-[13.5px] font-medium text-charcoal/75">
+        <a href="#konsep" class="hover:text-violet transition-colors">Gaya Desain</a>
+        <a href="#harga" class="hover:text-violet transition-colors">Paket Harga</a>
+        <a href="#katalog" class="hover:text-violet transition-colors">Katalog Tema</a>
+        <a href="#addon" class="hover:text-violet transition-colors">Add-On</a>
+        <a href="#faq" class="hover:text-violet transition-colors">FAQ</a>
+      </nav>
+
+      <div class="flex items-center gap-2">
+        <button onclick="openOrderModal()" class="hidden sm:inline-flex items-center gap-2 bg-violet text-ivory px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-semibold hover:bg-violet-dark transition-all shadow-md shadow-violet/20">
+          <i class="fa-solid fa-paper-plane text-xs"></i> Form Pesan
+        </button>
+        <button id="menuBtn" aria-label="Buka menu navigasi" aria-expanded="false" class="lg:hidden w-9 h-9 flex items-center justify-center rounded-full border border-charcoal/15 text-charcoal">
+          <i id="menuIcon" class="fa-solid fa-bars text-sm"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div id="mobileMenu" class="lg:hidden hidden border-t border-charcoal/10 bg-ivory/98 backdrop-blur-xl">
+    <nav class="flex flex-col px-4 py-3 text-sm font-medium text-charcoal/85">
+      <a href="#konsep" class="py-2.5 border-b border-charcoal/5">Gaya Desain Pernikahan</a>
+      <a href="#harga" class="py-2.5 border-b border-charcoal/5">Paket Harga</a>
+      <a href="#katalog" class="py-2.5 border-b border-charcoal/5">Katalog Tema</a>
+      <a href="#addon" class="py-2.5 border-b border-charcoal/5">Add-On Fitur</a>
+      <a href="#faq" class="py-2.5 border-b border-charcoal/5">FAQ</a>
+      <button onclick="openOrderModal(); toggleMobileMenu();" class="mt-3 mb-1 flex items-center justify-center gap-2 bg-violet text-ivory px-4 py-2.5 rounded-full text-xs font-semibold">
+        <i class="fa-solid fa-paper-plane text-xs"></i> Buka Formulir Pesanan
+      </button>
+    </nav>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="relative overflow-hidden pt-24 pb-12 sm:pt-36 sm:pb-24">
+  <div class="absolute -right-20 -top-20 w-64 h-64 sm:w-72 sm:h-72 rounded-full bg-gold/15 blur-3xl pointer-events-none"></div>
+  <div class="absolute -left-16 bottom-0 w-56 h-56 sm:w-64 sm:h-64 rounded-full bg-violet/15 blur-3xl pointer-events-none"></div>
+
+  <div class="max-w-4xl mx-auto px-4 sm:px-8 relative text-center flex flex-col items-center">
+    <div class="hero-rise hero-rise-1 inline-flex items-center gap-1.5 glass-card text-violet text-[11px] sm:text-sm font-medium px-3.5 py-1.5 rounded-full border border-white/80 shadow-sm">
+      <span class="text-gold">✦</span> Digital Wedding Invitation
+    </div>
+
+    <h1 class="hero-rise hero-rise-2 mt-4 sm:mt-6 text-xl leading-snug sm:text-4xl sm:leading-tight lg:text-5xl lg:leading-tight font-bold text-charcoal">
+      Abadikan Momen Pernikahanmu dengan Undangan Video 3D / Web Cover Elegan
+    </h1>
+
+    <p class="hero-rise hero-rise-3 mt-3 sm:mt-6 text-slate text-[13px] sm:text-base lg:text-lg leading-relaxed max-w-2xl">
+      Pilih tema favoritmu, lalu kirim form pemesanan, kirim data acara dan undangan siap dibuat sesuai paket pilihanmu.
+    </p>
+
+    <div class="hero-rise hero-rise-4 mt-6 sm:mt-9 flex flex-col sm:flex-row gap-2.5 w-full sm:w-auto justify-center px-2 sm:px-0">
+      <a href="#harga" class="inline-flex items-center justify-center gap-2 bg-violet text-ivory px-6 py-3 rounded-full text-xs sm:text-base font-semibold hover:bg-violet-dark transition-all shadow-md shadow-violet/20">
+        Lihat Pilihan Paket 
+      </a>
+      <a href="#katalog" class="inline-flex items-center justify-center gap-2 glass-card text-charcoal px-6 py-3 rounded-full text-xs sm:text-base font-semibold hover:border-violet hover:text-violet transition-all shadow-sm">
+        Jelajahi Katalog Tema
+      </a>
+    </div>
+
+    <div class="hero-rise hero-rise-4 mt-8 sm:mt-14 grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-6 w-full">
+      <div class="glass-card p-3 sm:p-4 rounded-xl sm:rounded-2xl">
+        <p class="text-lg sm:text-3xl font-bold text-violet">3D</p>
+        <p class="text-[10.5px] sm:text-sm text-slate mt-0.5">Undangan Digital</p>
+      </div>
+      <div class="glass-card p-3 sm:p-4 rounded-xl sm:rounded-2xl">
+        <p class="text-lg sm:text-3xl font-bold text-violet">Tema</p>
+        <p class="text-[10.5px] sm:text-sm text-slate mt-0.5">Banyak Pilihan</p>
+      </div>
+      <div class="glass-card p-3 sm:p-4 rounded-xl sm:rounded-2xl">
+        <p class="text-lg sm:text-3xl font-bold text-violet">Unlimited</p>
+        <p class="text-[10.5px] sm:text-sm text-slate mt-0.5">Custom Nama Tamu</p>
+      </div>
+      <div class="glass-card p-3 sm:p-4 rounded-xl sm:rounded-2xl">
+        <p class="text-lg sm:text-3xl font-bold text-violet">100%</p>
+        <p class="text-[10.5px] sm:text-sm text-slate mt-0.5">Revisi Bebas</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TENTANG SENVITE (SIMPEL & ELEGAN) ============ -->
+<section id="konsep" class="py-12 sm:py-16">
+  <div class="max-w-7xl mx-auto px-4 sm:px-8">
+    <div class="glass-card rounded-3xl p-6 sm:p-10 lg:p-12">
+      <div class="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+        
+        <!-- Sisi Kiri: Perkenalan Studio -->
+        <div class="lg:col-span-5 space-y-4 text-left">
+          <div class="inline-flex items-center gap-2 text-violet text-xs font-semibold px-3 py-1 rounded-full bg-violet/10">
+            <span class="text-gold">✦</span> TENTANG SENVITE
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-bold text-charcoal leading-tight">
+            Undangan Pernikahan Praktis & Elegan
+          </h2>
+          <div class="gold-rule w-12"></div>
+          <p class="text-xs sm:text-sm text-slate leading-relaxed">
+            Senvite.ID menghadirkan cara modern membagikan kabar bahagia. Menggabungkan estetika amplop digital bertuliskan nama tamu personal dengan tayangan video Full HD yang berputar otomatis tanpa alur scroll website yang rumit.
+          </p>
+        </div>
+
+        <!-- Sisi Kanan: 3 Poin Layanan & Pilihan -->
+        <div class="lg:col-span-7 grid sm:grid-cols-3 gap-3.5 sm:gap-4">
+          
+          <!-- Poin 1: Format Layanan -->
+          <div class="bg-white/80 rounded-2xl p-4 sm:p-5 border border-charcoal/5 flex flex-col justify-between">
+            <div>
+              <div class="w-9 h-9 rounded-xl bg-violet/10 text-violet flex items-center justify-center text-sm mb-3">
+                <i class="fa-solid fa-play"></i>
+              </div>
+              <h3 class="font-bold text-charcoal text-sm">2 Opsi Format</h3>
+              <p class="mt-1.5 text-xs text-slate leading-relaxed">
+                Tersedia file video MP4 siap posting dan tautan web cover personal.
+              </p>
+            </div>
+            
+          </div>
+
+          <!-- Poin 2: Paket Fleksibel -->
+          <div class="bg-white/80 rounded-2xl p-4 sm:p-5 border border-charcoal/5 flex flex-col justify-between">
+            <div>
+              <div class="w-9 h-9 rounded-xl bg-violet/10 text-violet flex items-center justify-center text-sm mb-3">
+                <i class="fa-solid fa-layer-group"></i>
+              </div>
+              <h3 class="font-bold text-charcoal text-sm">Paket 1, 2, & 3</h3>
+              <p class="mt-1.5 text-xs text-slate leading-relaxed">
+                Pilihan paket hemat mulai dari video only hingga paket eksklusif kilat.
+              </p>
+            </div>
+           
+          </div>
+
+          <!-- Poin 3: Katalog Tema -->
+          <div class="bg-white/80 rounded-2xl p-4 sm:p-5 border border-charcoal/5 flex flex-col justify-between">
+            <div>
+              <div class="w-9 h-9 rounded-xl bg-violet/10 text-violet flex items-center justify-center text-sm mb-3">
+                <i class="fa-solid fa-palette"></i>
+              </div>
+              <h3 class="font-bold text-charcoal text-sm">Ragam Tema</h3>
+              <p class="mt-1.5 text-xs text-slate leading-relaxed">
+                Desain adat nusantara, syar'i modern, hingga nuansa mewah berkelas.
+              </p>
+            </div>
+            
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PAKET HARGA (PAKET 1, 2, 3) ============ -->
+<section id="harga" class="py-12 sm:py-20">
+  <div class="max-w-7xl mx-auto px-4 sm:px-8">
+    <div class="max-w-xl mx-auto text-center lg:mx-0 lg:text-left">
+      <h2 class="text-xl sm:text-3xl lg:text-4xl font-bold text-charcoal">Pilihan Paket Undangan Digital</h2>
+      <div class="gold-rule w-14 mt-2.5 sm:mt-4 mx-auto lg:mx-0"></div>
+      <p class="mt-2.5 sm:mt-4 text-slate text-xs sm:text-base">Perbandingan transparan fitur setiap paket tanpa biaya tersembunyi.</p>
+    </div>
+
+    <div class="mt-8 sm:mt-12 grid grid-cols-1 lg:grid-cols-3 gap-5 sm:gap-8 items-start">
+
+      <!-- PAKET 1 -->
+      <div class="glass-card rounded-2xl sm:rounded-3xl p-5 sm:p-8 flex flex-col h-full hover:shadow-xl transition-all">
+        <h3 class="text-base sm:text-xl font-bold text-charcoal">Paket 1</h3>
+        <p class="text-xs text-slate mt-0.5">Video Invitation Only</p>
+        
+        <div class="mt-3 mb-1 flex items-baseline gap-2">
+          <del class="text-xs sm:text-sm font-medium text-slate/50 line-through">Rp 89.000</del>
+          <span class="text-xl sm:text-3xl font-extrabold text-charcoal">Rp 54.000</span>
+          <span class="text-[11px] text-slate">/ video</span>
+        </div>
+
+        <p class="mt-2 text-xs sm:text-sm text-slate leading-relaxed">Simpel & praktis, file video MP4 siap sebar langsung ke status IG, TikTok, & chat WA.</p>
+
+        <ul class="mt-4 sm:mt-6 space-y-2.5 sm:space-y-3.5 text-xs sm:text-sm flex-1">
+          <li class="flex items-start gap-2.5"><i class="fa-solid fa-circle-check text-emerald mt-0.5 shrink-0"></i><span>Bebas Pilih Tema Katalog Wedding</span></li>
+          <li class="flex items-start gap-2.5"><i class="fa-solid fa-circle-check text-emerald mt-0.5 shrink-0"></i><span>Data Acara Lengkap</span></li>
+          <li class="flex items-start gap-2.5"><i class="fa-solid fa-circle-check text-emerald mt-0.5 shrink-0"></i><span>File Video MP4 Kualitas Full HD (9:16)</span></li>
+          <li class="flex items-start gap-2.5"><i class="fa-solid fa-circle-check text-emerald mt-0.5 shrink-0"></i><span>Request Lagu Favorit</span></li>
+          <li class="flex items-start gap-2.5 text-slate/40"><i class="fa-solid fa-circle-xmark mt-0.5 shrink-0"></i><span>QR Code Maps Lokasi</span></li>
+          <li class="flex items-start gap-2.5 text-slate/40"><i class="fa-solid fa-circle-xmark mt-0.5 shrink-0"></i><span>Link Web Undangan</span></li>
+          <li class="flex items-start gap-2.5 text-slate/40"><i class="fa-solid fa-circle-xmark mt-0.5 shrink-0"></i><span>Custom Nama Tamu UNLIMITED tanpa batas</span></li>
+          <li class="flex items-start gap-2.5 text-slate/40"><i class="fa-solid fa-circle-xmark mt-0.5 shrink-0"></i><span>+ Foto Memories / foto prewedding (optional)</span></li>
+          <li class="flex items-start gap-2.5 text-slate/40"><i class="fa-solid fa-circle-xmark mt-0.5 shrink-0"></i><span>Prioritas Antrean Kilat Express</span></li>
+          <li class="flex items-start gap-2.5 text-slate/40"><i class="fa-solid fa-circle-xmark mt-0.5 shrink-0"></i><span>Bonus File Desain Undangan Cetak</span></li>
+          <li class="flex items-start gap-2.5 text-slate/40"><i class="fa-solid fa-circle-xmark mt-0.5 shrink-0"></i><span>Revisi Sepuasnya</span></li>
+        </ul>
+
+        <div class="mt-5 sm:mt-6 flex items-center gap-2 text-[10.5px] sm:text-xs text-slate glass-card rounded-full px-3 py-1.5 w-fit">
+          <i class="fa-regular fa-clock"></i> Estimasi 1-4 Hari Kerja
+        </div>
+      </div>
+
+      <!-- PAKET 2 -->
+      <div class="relative glass-card-violet rounded-2xl sm:rounded-3xl p-5 sm:p-8 pt-7 sm:pt-9 flex flex-col h-full lg:-translate-y-4 shadow-xl shadow-violet/25">
+        <span class="absolute -top-3 left-1/2 -translate-x-1/2 w-[88%] text-center bg-gold text-charcoal text-[9.5px] sm:text-[11.5px] font-bold px-2.5 py-1 rounded-full leading-tight shadow-md">⭐ Paling Diminati Pasangan</span>
+        <h3 class="text-base sm:text-xl font-bold text-ivory mt-1">Paket 2</h3>
+        <p class="text-xs text-gold mt-0.5">Web Cover + Video Autoplay</p>
+        
+        <div class="mt-3 mb-1 flex items-baseline gap-2">
+          <del class="text-xs sm:text-sm font-medium text-ivory/50 line-through">Rp 149.000</del>
+          <span class="text-xl sm:text-3xl font-extrabold text-gold">Rp 87.000</span>
+          <span class="text-[11px] text-ivory/80">/ paket</span>
+        </div>
+
+        <p class="mt-2 text-xs sm:text-sm text-ivory/80 leading-relaxed">Video sinematik terbungkus link web cover elegan berisikan nama tamu masing-masing.</p>
+
+        <ul class="mt-4 sm:mt-6 space-y-2.5 sm:space-y-3.5 text-xs sm:text-sm flex-1 text-ivory">
+          <li class="flex items-start gap-2.5"><i class="fa-solid fa-circle-check text-gold mt-0.5 shrink-0"></i><span>Bebas Pilih Tema Katalog Wedding</span></li>
+          <li class="flex items-start gap-2.5"><i class="fa-solid fa-circle-check text-gold mt-0.5 shrink-0"></i><span>Data Acara Lengkap</span></li>
+          <li class="flex items-start gap-2.5"><i class="fa-solid fa-circle-check text-gold mt-0.5 shrink-0"></i><span>File Video MP4 Kualitas Full HD (9:16)</span></li>
+          <li class="flex items-start gap-2.5"><i class="fa-solid fa-circle-check text-gold mt-0.5 shrink-0"></i><span>Request Lagu Favorit</span></li>
+          <li class="flex items-start gap-2.5"><i class="fa-solid fa-circle-check text-gold mt-0.5 shrink-0"></i><span>QR Code Maps Lokasi</span></li>
+          <li class="flex items-start gap-2.5"><i class="fa-solid fa-circle-check text-gold mt-0.5 shrink-0"></i><span>Link Web Undangan</span></li>
+          <li class="flex items-start gap-2.5"><i class="fa-solid fa-circle-check text-gold mt-0.5 shrink-0"></i><span>Custom Nama Tamu UNLIMITED tanpa batas</span></li>
+          <li class="flex items-start gap-2.5"><i class="fa-solid fa-circle-check text-gold mt-0.5 shrink-0"></i><span>+ Foto Memories / foto prewedding (optional)</span></li>
+          <li class="flex items-start gap-2.5 text-ivory/40"><i class="fa-solid fa-circle-xmark mt-0.5 shrink-0"></i><span>Prioritas Antrean Kilat Express</span></li>
+          <li class="flex items-start gap-2.5 text-ivory/40"><i class="fa-solid fa-circle-xmark mt-0.5 shrink-0"></i><span>Bonus File Desain Undangan Cetak</span></li>
+          <li class="flex items-start gap-2.5 text-ivory/40"><i class="fa-solid fa-circle-xmark mt-0.5 shrink-0"></i><span>Revisi Sepuasnya</span></li>
+        </ul>
+
+        <div class="mt-5 sm:mt-6 flex items-center gap-2 text-[10.5px] sm:text-xs text-ivory/90 bg-white/10 rounded-full px-3 py-1.5 w-fit">
+          <i class="fa-regular fa-clock"></i> Estimasi 1–7 Hari Kerja
+        </div>
+      </div>
+
+      <!-- PAKET 3 -->
+      <div class="relative glass-card-dark rounded-2xl sm:rounded-3xl p-5 sm:p-8 pt-7 sm:pt-9 flex flex-col h-full shadow-xl">
+        <span class="absolute -top-3 left-1/2 -translate-x-1/2 w-[88%] text-center bg-ivory text-charcoal text-[9.5px] sm:text-[11.5px] font-bold px-2.5 py-1 rounded-full leading-tight shadow-md">Paket Terlengkap & Eksklusif</span>
+        <h3 class="text-base sm:text-xl font-bold text-ivory mt-1">Paket 3</h3>
+        <p class="text-xs text-gold mt-0.5">The Ultimate Experience</p>
+        
+        <div class="mt-3 mb-1 flex items-baseline gap-2">
+          <del class="text-xs sm:text-sm font-medium text-ivory/40 line-through">Rp 259.000</del>
+          <span class="text-xl sm:text-3xl font-extrabold text-gold">Rp 198.000</span>
+          <span class="text-[11px] text-ivory/70">/ paket</span>
+        </div>
+
+        <p class="mt-2 text-xs sm:text-sm text-ivory/70 leading-relaxed">Video komplit dengan album foto kenangan personal dan kustomisasi audio bebas.</p>
+
+        <ul class="mt-4 sm:mt-6 space-y-2.5 sm:space-y-3.5 text-xs sm:text-sm flex-1 text-ivory/90">
+          <li class="flex items-start gap-2.5"><i class="fa-solid fa-circle-check text-gold mt-0.5 shrink-0"></i><span>Bebas Pilih Tema Katalog Wedding</span></li>
+          <li class="flex items-start gap-2.5"><i class="fa-solid fa-circle-check text-gold mt-0.5 shrink-0"></i><span>Data Acara Lengkap</span></li>
+          <li class="flex items-start gap-2.5"><i class="fa-solid fa-circle-check text-gold mt-0.5 shrink-0"></i><span>File Video MP4 Kualitas Full HD (9:16)</span></li>
+          <li class="flex items-start gap-2.5"><i class="fa-solid fa-circle-check text-gold mt-0.5 shrink-0"></i><span>Request Lagu Favorit</span></li>
+          <li class="flex items-start gap-2.5"><i class="fa-solid fa-circle-check text-gold mt-0.5 shrink-0"></i><span>QR Code Maps Lokasi</span></li>
+          <li class="flex items-start gap-2.5"><i class="fa-solid fa-circle-check text-gold mt-0.5 shrink-0"></i><span>Link Web Undangan</span></li>
+          <li class="flex items-start gap-2.5"><i class="fa-solid fa-circle-check text-gold mt-0.5 shrink-0"></i><span>Custom Nama Tamu UNLIMITED tanpa batas</span></li>
+          <li class="flex items-start gap-2.5"><i class="fa-solid fa-circle-check text-gold mt-0.5 shrink-0"></i><span>+ Foto Memories / foto prewedding (optional)</span></li>
+          <li class="flex items-start gap-2.5"><i class="fa-solid fa-circle-check text-gold mt-0.5 shrink-0"></i><span>Prioritas Antrean Kilat Express</span></li>
+          <li class="flex items-start gap-2.5"><i class="fa-solid fa-circle-check text-gold mt-0.5 shrink-0"></i><span>Bonus File Desain Undangan Cetak</span></li>
+          <li class="flex items-start gap-2.5"><i class="fa-solid fa-circle-check text-gold mt-0.5 shrink-0"></i><span>Revisi Sepuasnya</span></li>
+        </ul>
+
+        <div class="mt-5 sm:mt-6 flex items-center gap-2 text-[10.5px] sm:text-xs text-gold bg-white/5 rounded-full px-3 py-1.5 w-fit">
+          <i class="fa-solid fa-bolt"></i> Estimasi 15-24 Jam Selesai
+        </div>
+      </div>
+
+    </div>
+
+    <!-- TEKS CATATAN DI BAWAH KARTU PAKET (RESPONSIF KIRI PENUH) -->
+    <div class="mt-6 sm:mt-8 text-left w-full space-y-1 text-[11.5px] sm:text-[13.5px] text-slate leading-relaxed px-1 sm:px-0">
+      <p>
+        <span class="text-gold font-semibold">✦ Catatan Revisi:</span> 
+        Maksimal 3x Revisi Sebelum Hari-H untuk Paket 1 & Paket 2.
+      </p>
+      <p>
+        <span class="text-gold font-semibold">✦ Layanan Express:</span> 
+        Untuk pengerjaan kilat <span class="font-semibold text-charcoal">(15–24 jam)</span>, silakan 
+        <a href="https://wa.me/6281228440430?text=Halo%20Admin%20Senvite,%20apakah%20slot%20antrean%20kilat%20express%20hari%20ini%20tersedia?" target="_blank" rel="noopener" class="text-violet font-semibold underline underline-offset-2 hover:text-gold transition-colors">
+          chat admin via WA
+        </a> 
+        terlebih dahulu untuk menanyakan ketersediaan slot antrean.
+      </p>
+      <p>
+        <span class="text-gold font-semibold">✦ Proses Pengerjaan:</span> 
+        Pengerjaan dilakukan sesuai antrean dengan maksimal hari yang ditentukan tiap paket.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ KATALOG TEMA ============ -->
+<section id="katalog" class="py-12 sm:py-20">
+  <div class="max-w-7xl mx-auto px-3.5 sm:px-8">
+    <div class="max-w-xl">
+      <h2 class="text-xl sm:text-3xl lg:text-4xl font-bold text-charcoal">Katalog Tema Undangan</h2>
+      <div class="gold-rule w-14 mt-2.5 sm:mt-4"></div>
+      <p class="mt-2.5 sm:mt-4 text-slate text-xs sm:text-base">Klik <strong>Preview</strong> untuk melihat live demo, atau klik <strong>Pesan</strong> untuk langsung membuka formulir pemesanan.</p>
+    </div>
+
+    <!-- Filter Bar -->
+    <div id="filterTabs" class="mt-6 sm:mt-8 flex flex-wrap gap-1.5 sm:gap-2"></div>
+
+    <!-- Grid Card Katalog (2 Kolom HP Adaptif) -->
+    <div id="catalogGrid" class="fade-swap mt-6 sm:mt-10 grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2.5 sm:gap-6"></div>
+  </div>
+</section>
+
+<!-- ============ ADD-ON MENU ============ -->
+<section id="addon" class="py-12 sm:py-20">
+  <div class="max-w-7xl mx-auto px-4 sm:px-8">
+    <div class="max-w-xl">
+      <h2 class="text-xl sm:text-3xl lg:text-4xl font-bold text-charcoal">Lengkapi Kebutuhanmu dengan Add-On</h2>
+      <div class="gold-rule w-14 mt-2.5 sm:mt-4"></div>
+      <p class="mt-2.5 sm:mt-4 text-slate text-xs sm:text-base">Fitur pelengkap opsional untuk membuat undangan pernikahan digitalmu semakin memukau.</p>
+    </div>
+
+    <div id="addonGrid" class="mt-6 sm:mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-5"></div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section id="faq" class="py-12 sm:py-20">
+  <div class="max-w-7xl mx-auto px-4 sm:px-8 grid lg:grid-cols-[0.75fr,1.25fr] gap-6 sm:gap-12">
+    <div>
+      <div class="inline-flex items-center gap-1.5 glass-card text-violet text-[11px] sm:text-xs font-semibold px-3 py-1 rounded-full mb-2.5 border border-white/80">
+        <i class="fa-solid fa-circle-question text-gold"></i> PUSAT INFORMASI
+      </div>
+      <h2 class="text-xl sm:text-3xl lg:text-4xl font-bold text-charcoal">Pertanyaan yang Sering Ditanyakan (FAQ)</h2>
+      <div class="gold-rule w-14 mt-2.5 sm:mt-4"></div>
+    </div>
+
+    <div class="space-y-2.5 sm:space-y-3" id="faqList">
+      
+      <!-- FAQ 1 -->
+      <div class="glass-card rounded-xl sm:rounded-2xl overflow-hidden">
+        <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between gap-3 text-left px-4 sm:px-6 py-3.5 sm:py-5 text-xs sm:text-base font-semibold text-charcoal">
+          <span>Bagaimana cara kerja undangan digital Senvite Paket 2?</span>
+          <i class="fa-solid fa-chevron-down faq-chevron text-slate shrink-0 text-xs sm:text-sm"></i>
+        </button>
+        <div class="accordion-panel px-4 sm:px-6">
+          <p class="text-[11.5px] sm:text-sm text-slate leading-relaxed pb-3.5 sm:pb-5">
+            Tamu menerima link personal lewat WhatsApp/ Media Sosial lainnya. Begitu link dibuka di HP, layar menampilkan <strong>Cover Pembuka
+            </strong> bertuliskan nama tamu tersebut. Saat tombol 'Buka Undangan' ditekan, cover otomatis bergeser ke atas dan langsung <strong>memutar video pernikahan (MP4)
+
+            </strong> secara lancar tergantung koneksi internet.
+          </p>
+        </div>
+      </div>
+
+      <!-- FAQ 2 -->
+      <div class="glass-card rounded-xl sm:rounded-2xl overflow-hidden">
+        <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between gap-3 text-left px-4 sm:px-6 py-3.5 sm:py-5 text-xs sm:text-base font-semibold text-charcoal">
+          <span>Apakah ada fitur RSVP dan Ucapan/ Doa?</span>
+          <i class="fa-solid fa-chevron-down faq-chevron text-slate shrink-0 text-xs sm:text-sm"></i>
+        </button>
+        <div class="accordion-panel px-4 sm:px-6">
+          <p class="text-[11.5px] sm:text-sm text-slate leading-relaxed pb-3.5 sm:pb-5">
+            Tidak ada. Senvite fokus pada <strong>video undangan MP4</strong> dan <strong>web cover</strong> yang estetik, 
+            sehingga tamu dapat langsung menonton video pernikahan tanpa harus scroll scroll website.
+          </p>
+        </div>
+      </div>
+
+      <!-- FAQ 3 -->
+      <div class="glass-card rounded-xl sm:rounded-2xl overflow-hidden">
+        <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between gap-3 text-left px-4 sm:px-6 py-3.5 sm:py-5 text-xs sm:text-base font-semibold text-charcoal">
+          <span>Bagaimana cara membuat nama tamu berbeda-beda?</span>
+          <i class="fa-solid fa-chevron-down faq-chevron text-slate shrink-0 text-xs sm:text-sm"></i>
+        </button>
+        <div class="accordion-panel px-4 sm:px-6">
+          <p class="text-[11.5px] sm:text-sm text-slate leading-relaxed pb-3.5 sm:pb-5">
+            Mudah dan <strong>100% UNLIMITED</strong>. Kamu tidak perlu mengetik ratusan nama tamu ke sistem kami satu per satu. 
+            Cukup satu link web, kamu hanya tinggal menambahkan parameter di akhir link (contoh: <code>undangan.com/?to=Budi+Santoso</code>). 
+            Teks di cover web akan otomatis berganti sesuai nama tamu tersebut.
+          </p>
+        </div>
+      </div>
+
+      <!-- FAQ 4 -->
+      <div class="glass-card rounded-xl sm:rounded-2xl overflow-hidden">
+        <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between gap-3 text-left px-4 sm:px-6 py-3.5 sm:py-5 text-xs sm:text-base font-semibold text-charcoal">
+          <span>Apakah bisa karakter animasi nya dirubah wajah pengantin?</span>
+          <i class="fa-solid fa-chevron-down faq-chevron text-slate shrink-0 text-xs sm:text-sm"></i>
+        </button>
+        <div class="accordion-panel px-4 sm:px-6">
+          <p class="text-[11.5px] sm:text-sm text-slate leading-relaxed pb-3.5 sm:pb-5">
+            Bisa, dengan fitur add-on <strong>Custom Karakter Animasi</strong>. Kamu bisa mengirimkan foto wajah pengantin, lalu tim Senvite akan membuatkan karakter animasi yang mirip dengan wajahmu. Fitur ini opsional dan dikenakan biaya tambahan.
+          </p>
+        </div>
+      </div>
+
+      <!-- FAQ 5 -->
+      <div class="glass-card rounded-xl sm:rounded-2xl overflow-hidden">
+        <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between gap-3 text-left px-4 sm:px-6 py-3.5 sm:py-5 text-xs sm:text-base font-semibold text-charcoal">
+          <span>Berapa lama estimasi pengerjaan undangannya?</span>
+          <i class="fa-solid fa-chevron-down faq-chevron text-slate shrink-0 text-xs sm:text-sm"></i>
+        </button>
+        <div class="accordion-panel px-4 sm:px-6">
+          <p class="text-[11.5px] sm:text-sm text-slate leading-relaxed pb-3.5 sm:pb-5">
+            • <strong>Paket 1:</strong> 1-4 hari kerja setelah materi data lengkap.<br>
+            • <strong>Paket 2:</strong> 1–7 hari kerja.<br>
+            • <strong>Paket 3 & Layanan Kilat:</strong> Prioritas khusus 15–24 jam selesai.
+          </p>
+        </div>
+      </div>
+
+      <!-- FAQ 6 -->
+      <div class="glass-card rounded-xl sm:rounded-2xl overflow-hidden">
+        <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between gap-3 text-left px-4 sm:px-6 py-3.5 sm:py-5 text-xs sm:text-base font-semibold text-charcoal">
+          <span>Bagaimana jika ada perubahan jam atau tempat acara?</span>
+          <i class="fa-solid fa-chevron-down faq-chevron text-slate shrink-0 text-xs sm:text-sm"></i>
+        </button>
+        <div class="accordion-panel px-4 sm:px-6">
+          <p class="text-[11.5px] sm:text-sm text-slate leading-relaxed pb-3.5 sm:pb-5">
+            Kami menyediakan garansi revisi maksimal 3x untuk Paket 1 & 2 (revisi sepuasnya untuk Paket 3) jika ada kesalahan pengetikan nama atau jam acara sebelum undangan disebarkan. Video dan web cover akan segera diperbarui tim kami.
+          </p>
+        </div>
+      </div>
+
+      <!-- FAQ 7 -->
+      <div class="glass-card rounded-xl sm:rounded-2xl overflow-hidden">
+        <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between gap-3 text-left px-4 sm:px-6 py-3.5 sm:py-5 text-xs sm:text-base font-semibold text-charcoal">
+          <span>Paket 1 apakah bisa pakai link dan custom nama tamu?</span>
+          <i class="fa-solid fa-chevron-down faq-chevron text-slate shrink-0 text-xs sm:text-sm"></i>
+        </button>
+        <div class="accordion-panel px-4 sm:px-6">
+          <p class="text-[11.5px] sm:text-sm text-slate leading-relaxed pb-3.5 sm:pb-5">
+            Bisa banget! Kamu bisa menambahkan add on <strong>Custom Link Web Undangan</strong> dan <strong>Bonus Custom Nama Tamu UNLIMITED</strong> untuk Paket 1. Jadi, meski hanya membeli Paket 1, tamu tetap bisa menerima link web cover personal dengan nama masing-masing.
+          </p>
+        </div>
+      </div>
+
+      <!-- FAQ 8 -->
+      <div class="glass-card rounded-xl sm:rounded-2xl overflow-hidden">
+        <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between gap-3 text-left px-4 sm:px-6 py-3.5 sm:py-5 text-xs sm:text-base font-semibold text-charcoal">
+          <span>Berapa lama link web cover aktif di internet?</span>
+          <i class="fa-solid fa-chevron-down faq-chevron text-slate shrink-0 text-xs sm:text-sm"></i>
+        </button>
+        <div class="accordion-panel px-4 sm:px-6">
+          <p class="text-[11.5px] sm:text-sm text-slate leading-relaxed pb-3.5 sm:pb-5">
+            Link web aktif penuh hingga hari-H pernikahan selesai dan tetap tersimpan sebagai arsip kenangan selama 5-6 bulan pasca acara.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ MODAL POPUP FORMULIR PEMESANAN ============ -->
+<div id="orderModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-3.5 bg-charcoal/70 backdrop-blur-md overflow-y-auto">
+  <div class="relative w-full max-w-xl my-auto glass-card rounded-2xl sm:rounded-3xl p-5 sm:p-8 shadow-2xl border border-white max-h-[92vh] overflow-y-auto">
+    <!-- Close Button -->
+    <button onclick="closeOrderModal()" class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full glass-card hover:bg-white text-charcoal transition-colors">
+      <i class="fa-solid fa-xmark text-sm"></i>
+    </button>
+
+    <div class="pr-6">
+      <div class="inline-flex items-center gap-1.5 text-violet text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-violet/10 mb-1.5">
+        <i class="fa-solid fa-paper-plane text-gold"></i> FORMULIR PEMESANAN
+      </div>
+      <h3 class="text-lg sm:text-2xl font-bold text-charcoal">Pesan Undangan Pernikahan</h3>
+      <p class="mt-0.5 text-xs text-slate">Lengkapi data di bawah, draf pesanan langsung terformat rapi ke WhatsApp Senvite.</p>
+    </div>
+
+    <form id="orderForm" class="mt-4 space-y-3.5 sm:space-y-4">
+      <!-- Nama Calon Mempelai -->
+      <div>
+        <label for="orderNama" class="text-xs sm:text-sm font-semibold text-charcoal">Nama Calon Mempelai</label>
+        <input id="orderNama" type="text" required placeholder="Contoh: Ayu & Bagas" class="mt-1 w-full rounded-xl glass-input px-3.5 py-2.5 sm:py-3 text-xs sm:text-sm focus:border-violet outline-none transition-colors">
+      </div>
+
+      <!-- Pilihan Paket -->
+      <div>
+        <label for="orderPaket" class="text-xs sm:text-sm font-semibold text-charcoal">Pilihan Paket</label>
+        <select id="orderPaket" required class="mt-1 w-full rounded-xl glass-input px-3.5 py-2.5 sm:py-3 text-xs sm:text-sm focus:border-violet outline-none transition-colors font-medium">
+          <option value="Paket 1 — Video Only (Rp 54.000)">Paket 1 — Video Invitation Only (Rp 54.000)</option>
+          <option value="Paket 2 — Web Cover + Video (Rp 87.000)" selected>Paket 2 — Web Cover + Video (Rp 87.000) ⭐ Paling Diminati</option>
+          <option value="Paket 3 — Ultimate Luxury (Rp 198.000)">Paket 3 — Ultimate Luxury + Foto Memories (Rp 198.000)</option>
+        </select>
+      </div>
+
+      <!-- Tema Terpilih -->
+      <div>
+        <label for="orderTema" class="text-xs sm:text-sm font-semibold text-charcoal">Tema Desain Terpilih</label>
+        <select id="orderTema" required class="mt-1 w-full rounded-xl glass-input px-3.5 py-2.5 sm:py-3 text-xs sm:text-sm focus:border-violet outline-none transition-colors font-medium">
+          <!-- Populated by JS -->
+        </select>
+      </div>
+
+      <!-- Checkbox Add-On -->
+      <div class="pt-2 border-t border-charcoal/10">
+        <label class="text-xs sm:text-sm font-semibold text-charcoal block mb-1.5">
+          Tambahan Fitur Add-On <span class="text-[11px] font-normal text-slate">(Opsional)</span>
+        </label>
+        <div id="modalAddonsContainer" class="grid grid-cols-1 sm:grid-cols-2 gap-1.5 text-[11px] sm:text-xs max-h-36 overflow-y-auto pr-1">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+
+      <button type="submit" class="w-full flex items-center justify-center gap-2 bg-emerald text-ivory rounded-full py-3 text-xs sm:text-base font-semibold hover:brightness-110 transition-all shadow-md shadow-emerald/20">
+        <i class="fa-brands fa-whatsapp text-sm sm:text-lg"></i> Kirim Pesanan ke Admin
+      </button>
+    </form>
+  </div>
+</div>
+
+<!-- ============ FOOTER ============ -->
+<footer class="glass-card-dark text-ivory pt-10 sm:pt-16 pb-8 border-t border-white/10">
+  <div class="max-w-7xl mx-auto px-4 sm:px-8">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-10">
+      <div class="lg:col-span-2">
+        <a href="#top" class="flex items-center gap-2">
+          <img src="logo.png" alt="Senvite Logo" class="h-8 w-auto object-contain">
+          <span class="text-base sm:text-lg font-extrabold tracking-tight">SENVITE.ID</span>
+        </a>
+        <p class="mt-3 sm:mt-5 text-xs sm:text-sm text-ivory/60 leading-relaxed max-w-sm">
+          Jasa penyedia undangan pernikahan video 3D dengan web cover pembuka personal untuk momen bahagiamu.
+        </p>
+        <div class="mt-4 sm:mt-6 flex items-center gap-3">
+          <a href="https://instagram.com/senvite.id" target="_blank" rel="noopener" aria-label="Instagram Senvite" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-ivory/10 flex items-center justify-center hover:bg-gold hover:text-charcoal transition-colors">
+            <i class="fa-brands fa-instagram text-xs sm:text-sm"></i>
+          </a>
+          <a href="https://tiktok.com/@senvite.id" target="_blank" rel="noopener" aria-label="TikTok Senvite" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-ivory/10 flex items-center justify-center hover:bg-gold hover:text-charcoal transition-colors">
+            <i class="fa-brands fa-tiktok text-xs sm:text-sm"></i>
+          </a>
+          <a id="footerWaLink" href="#" target="_blank" rel="noopener" aria-label="WhatsApp Senvite" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-ivory/10 flex items-center justify-center hover:bg-gold hover:text-charcoal transition-colors">
+            <i class="fa-brands fa-whatsapp text-xs sm:text-sm"></i>
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <h4 class="font-semibold text-xs sm:text-base">Navigasi</h4>
+        <ul class="mt-2.5 sm:mt-4 space-y-1.5 sm:space-y-2.5 text-xs sm:text-sm text-ivory/60">
+          <li><a href="#konsep" class="hover:text-gold transition-colors">Gaya Desain</a></li>
+          <li><a href="#harga" class="hover:text-gold transition-colors">Paket Harga</a></li>
+          <li><a href="#katalog" class="hover:text-gold transition-colors">Katalog Tema</a></li>
+          <li><a href="#addon" class="hover:text-gold transition-colors">Add-On Fitur</a></li>
+          <li><a href="#faq" class="hover:text-gold transition-colors">FAQ</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="font-semibold text-xs sm:text-base">Layanan Pelanggan</h4>
+        <ul class="mt-2.5 sm:mt-4 space-y-1.5 sm:space-y-2.5 text-xs sm:text-sm text-ivory/60">
+          <li class="flex items-center gap-2"><i class="fa-regular fa-clock text-gold text-xs"></i> Minggu-Jumat, 11.00–23.00 WIB</li>
+          <li class="flex items-center gap-2"><i class="fa-solid fa-location-dot text-gold text-xs"></i> Yogyakarta, Indonesia</li>
+          <li class="flex items-center gap-2"><i class="fa-brands fa-whatsapp text-gold text-xs"></i> 0812-2844-0430</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-8 sm:mt-14 pt-4 sm:pt-6 border-t border-ivory/10 flex flex-col sm:flex-row items-center justify-between gap-2 text-[10.5px] sm:text-xs text-ivory/50 text-center sm:text-left">
+      <p>© <span id="year"></span> SENVITE ID. Seluruh hak cipta dilindungi.</p>
+      <p>Undangan Pernikahan Digital Elegan & Modern.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ FLOATING WHATSAPP BUTTON ============ -->
+<a id="floatingWaLink" href="#" target="_blank" rel="noopener" class="fixed bottom-4 right-3.5 sm:bottom-8 sm:right-8 z-40 flex items-center gap-2.5 group">
+  <span class="hidden sm:inline-flex glass-card text-charcoal text-xs font-semibold px-3 py-1.5 rounded-full shadow-lg border border-white/80">Chat Admin Senvite</span>
+  <span class="relative w-11 h-11 sm:w-14 sm:h-14 rounded-full bg-[#25D366] text-white flex items-center justify-center text-lg sm:text-2xl shadow-xl">
+    <span class="wa-pulse absolute inset-0 rounded-full"></span>
+    <i class="fa-brands fa-whatsapp relative z-10"></i>
+  </span>
+</a>
+
+<script>
+  const WA_NUMBER = "6281228440430";
+
+  function buildWaLink(text) {
+    return "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(text);
+  }
+
+  /* =========================================================
+     KATALOG DATA (DITAMBAH STATUS COMING SOON)
+  ========================================================= */
+  const catalogData = [
+    { 
+      id: 1, 
+      name: "Jawa #T01", 
+      category: "tradisional", 
+      categoryLabel: "Tradisional Adat", 
+      img: "multimedia/catalogvideo/1.jpg", 
+      demoUrl: "https://senvite-wedding-sinta-bagas.vercel.app/?to=Tamu+Undangan",
+      isComingSoon: false
+    },
+    { 
+      id: 2, 
+      name: "Jawa #T02", 
+      category: "tradisional", 
+      categoryLabel: "Tradisional Adat", 
+      img: "multimedia/catalogvideo/2.jpg", 
+      demoUrl: "https://wedding-sintabagas.vercel.app/?to=Tamu+Undangan",
+      isComingSoon: false
+    },
+    { 
+      id: 3, 
+      name: "Syar'i #S01", 
+      category: "islami", 
+      categoryLabel: "Islami Modern", 
+      img: "multimedia/catalogvideo/3.jpg", 
+      demoUrl: "https://senvite-wedding-syifa-ahmad.vercel.app/?to=tamu+undangan",
+      isComingSoon: false
+    },
+    { 
+      id: 4, 
+      name: "Minimalist Olive & Sage", 
+      category: "minimalis", 
+      categoryLabel: "Minimalis Elegan", 
+      img: "multimedia/olive.jpg", 
+      demoUrl: "#",
+      isComingSoon: true
+    },
+    { 
+      id: 5, 
+      name: "Warm Terracotta Botanical", 
+      category: "floral", 
+      categoryLabel: "Floral & Botanical", 
+      img: "multimedia/terracotta.jpg", 
+      demoUrl: "#",
+      isComingSoon: true
+    },
+    { 
+      id: 6, 
+      name: "Midnight Violet Royal Gold", 
+      category: "luxury", 
+      categoryLabel: "Luxury Gold", 
+      img: "multimedia/midnight.jpg", 
+      demoUrl: "#",
+      isComingSoon: true
+    },
+    { 
+      id: 7, 
+      name: "White Blossom Romance", 
+      category: "floral", 
+      categoryLabel: "Floral & Botanical", 
+      img: "multimedia/whiteblossom.jpg", 
+      demoUrl: "#",
+      isComingSoon: true
+    },
+    { 
+      id: 8, 
+      name: "Monochrome Typography", 
+      category: "minimalis", 
+      categoryLabel: "Minimalis Elegan", 
+      img: "multimedia/monochrome.jpg", 
+      demoUrl: "#",
+      isComingSoon: true
+    }
+  ];
+
+  const filterCategories = [
+    ["semua", "Semua"],
+    ["tradisional", "Adat"],
+    ["islami", "Islami"],
+    ["floral", "Floral"],
+    ["minimalis", "Minimalis"],
+    ["luxury", "Luxury"]
+  ];
+
+  let currentCategory = "semua";
+
+  function renderFilterTabs() {
+    const container = document.getElementById("filterTabs");
+    container.innerHTML = filterCategories.map(function (c) {
+      const key = c[0];
+      const label = c[1];
+      const active = key === currentCategory;
+      const activeClass = active ? "bg-violet text-ivory border-violet shadow-sm" : "glass-card text-charcoal border-white/80";
+      return '<button data-filter="' + key + '" onclick="filterSelection(\'' + key + '\')" class="filter-tab ' + activeClass + ' text-[11px] sm:text-sm font-medium px-3 py-1 sm:px-4 sm:py-1.5 rounded-full border">' + label + '</button>';
+    }).join('');
+  }
+
+  function filterSelection(category) {
+    currentCategory = category;
+    document.querySelectorAll('.filter-tab').forEach(function (btn) {
+      const active = btn.dataset.filter === category;
+      btn.className = "filter-tab " + (active ? "bg-violet text-ivory border-violet shadow-sm" : "glass-card text-charcoal border-white/80") + " text-[11px] sm:text-sm font-medium px-3 py-1 sm:px-4 sm:py-1.5 rounded-full border";
+    });
+    renderCatalogGrid();
+  }
+
+  /* RENDER CARD (TOMBOL RESPONSIF ANTI-TUMPUK) */
+  function renderCard(item) {
+    const aspect = "aspect-[9/16]";
+
+    if (item.isComingSoon) {
+      return (
+        '<div class="catalog-item glass-card p-2 sm:p-3 rounded-xl sm:rounded-2xl flex flex-col justify-between opacity-85 transition-all">' +
+          '<div>' +
+            '<div class="relative ' + aspect + ' rounded-lg sm:rounded-xl overflow-hidden bg-charcoal/10">' +
+              '<img src="' + item.img + '" alt="Mockup ' + item.name + '" class="w-full h-full object-cover grayscale blur-[1.5px]" loading="lazy">' +
+              '<span class="absolute top-1.5 left-1.5 sm:top-2.5 sm:left-2.5 bg-ivory/90 backdrop-blur-md border border-white/80 text-violet text-[8px] sm:text-[10px] font-bold tracking-wider uppercase px-2 py-0.5 rounded-full shadow-sm">' + item.categoryLabel + '</span>' +
+              '<div class="absolute inset-0 bg-charcoal/40 backdrop-blur-[1px] flex items-center justify-center p-2">' +
+                '<span class="bg-charcoal/90 text-gold border border-gold/40 text-[9.5px] sm:text-xs font-bold px-2.5 py-1 rounded-full shadow-lg tracking-wide uppercase">' +
+                  '✦ Coming Soon' +
+                '</span>' +
+              '</div>' +
+            '</div>' +
+            '<h3 class="mt-2 sm:mt-3 font-bold text-charcoal/70 text-[11.5px] sm:text-[15px] leading-snug line-clamp-1">' + item.name + '</h3>' +
+          '</div>' +
+          '<div class="mt-2 sm:mt-3">' +
+            '<button disabled class="w-full inline-flex items-center justify-center text-[10px] sm:text-[12.5px] font-semibold text-center bg-charcoal/10 text-slate/70 rounded-full py-1.5 cursor-not-allowed">' +
+              'Segera Hadir' +
+            '</button>' +
+          '</div>' +
+        '</div>'
+      );
+    }
+
+    return (
+      '<div class="catalog-item glass-card p-2 sm:p-3 rounded-xl sm:rounded-2xl flex flex-col justify-between hover:shadow-xl transition-all">' +
+        '<div>' +
+          '<div class="relative ' + aspect + ' rounded-lg sm:rounded-xl overflow-hidden bg-charcoal/5 group">' +
+            '<img src="' + item.img + '" alt="Mockup ' + item.name + '" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy">' +
+            '<span class="absolute top-1.5 left-1.5 sm:top-2.5 sm:left-2.5 bg-ivory/90 backdrop-blur-md border border-white/80 text-violet text-[8px] sm:text-[10px] font-bold tracking-wider uppercase px-2 py-0.5 rounded-full shadow-sm">' + item.categoryLabel + '</span>' +
+          '</div>' +
+          '<h3 class="mt-2 sm:mt-3 font-bold text-charcoal text-[11.5px] sm:text-[15px] leading-snug line-clamp-1">' + item.name + '</h3>' +
+        '</div>' +
+        '<div class="mt-2 sm:mt-3 flex gap-1 sm:gap-2">' +
+          '<a href="' + item.demoUrl + '" target="_blank" rel="noopener" class="flex-1 min-w-0 inline-flex items-center justify-center gap-1 text-[10px] sm:text-[12px] font-semibold text-center glass-card border border-charcoal/20 text-charcoal rounded-full py-1.5 hover:border-violet hover:text-violet hover:bg-white transition-all shadow-sm">' +
+            '<i class="fa-regular fa-eye text-[10px]"></i><span class="truncate">Preview</span>' +
+          '</a>' +
+          '<button onclick="openOrderModal(\'' + item.name.replace(/'/g, "\\'") + '\')" class="flex-1 min-w-0 inline-flex items-center justify-center gap-1 text-[10px] sm:text-[12px] font-semibold text-center bg-violet text-ivory rounded-full py-1.5 hover:bg-violet-dark transition-all shadow-sm shadow-violet/20">' +
+            '<i class="fa-solid fa-cart-shopping text-[9px]"></i><span class="truncate">Pesan</span>' +
+          '</button>' +
+        '</div>' +
+      '</div>'
+    );
+  }
+
+  function renderCatalogGrid() {
+    const grid = document.getElementById('catalogGrid');
+    grid.classList.add('is-fading');
+    setTimeout(function () {
+      const items = catalogData.filter(function (item) {
+        return currentCategory === "semua" || item.category === currentCategory;
+      });
+      grid.innerHTML = items.map(renderCard).join('');
+      grid.classList.remove('is-fading');
+    }, 180);
+  }
+
+  /* =========================================================
+     ADD-ON DATA KHUSUS
+  ========================================================= */
+  const addOnData = [
+    { 
+      name: "QR Code Maps", 
+      price: "Rp 4.000", 
+      icon: "fa-location-dot", 
+      desc: "Tombol navigasi dan scan barcode di layar cover yang langsung membuka rute Google Maps." 
+    },
+    { 
+      name: "Custom Link Website", 
+      price: "Promo Rp 10.000", 
+      icon: "fa-link", 
+      desc: "Tambah link custom ke website agar mudah dibagikan ke tamu. Bonus custom nama tamu." 
+    },
+    { 
+      name: "Custom Karakter dari Foto Wajah", 
+      price: "Promo Rp 20.000", 
+      icon: "fa-user", 
+      desc: "Ubah karakter custom berdasarkan foto wajah kamu dan pasangan di video undangan." 
+    },
+    { 
+      name: "Teks Pengantar Untuk Tamu", 
+      price: "Rp 7.000", 
+      icon: "fa-comment", 
+      desc: "Format susunan kata mutiara pengantar pesan WhatsApp yang sopan, rapi, dan siap sebar." 
+    },
+    { 
+      name: "Tambah Foto Memori / Prewedding", 
+      price: "Rp 10.000", 
+      icon: "fa-images", 
+      desc: "Tambahan 3–5 foto kenangan atau prewedding di dalam rangkaian klip video undangan." 
+    },
+    { 
+      name: "Tambah Wedding Gift", 
+      price: "Rp 5.000", 
+      icon: "fa-gift", 
+      desc: "Pencantuman nomor rekening atau alamat kirim kado langsung di dalam tampilan video." 
+    },
+    { 
+      name: "Tambah Love Story", 
+      price: "Rp 9.000", 
+      icon: "fa-heart", 
+      desc: "Tambahan slide khusus cerita perjalanan cinta dan momen berkesan kedua mempelai." 
+    },
+    { 
+      name: "Isi Tambahan Acara", 
+      price: "Rp 10.000", 
+      icon: "fa-film", 
+      desc: "Penambahan info sesi acara ekstra seperti Ngunduh Mantu, Siraman, Resepsi hari ke-2, atau acara lainnya." 
+    },
+    { 
+      name: "Revisi Tambahan Pasca Rilis", 
+      price: "Rp 15.000", 
+      icon: "fa-rotate", 
+      desc: "Perubahan data jam, lokasi, atau teks video mendadak setelah kuota revisi paket habis." 
+    },
+    { 
+      name: "Layanan Kilat Express maks 20 Jam", 
+      price: "Rp 65.000", 
+      icon: "fa-bolt", 
+      desc: "Prioritas antrean pengerjaan kilat selesai dalam 20 jam jika hari acara sudah sangat mepet." 
+    }
+  ];
+
+  function renderAddOns() {
+    const grid = document.getElementById('addonGrid');
+    grid.innerHTML = addOnData.map(function (item) {
+      return (
+        '<div class="glass-card rounded-2xl p-4 sm:p-5 flex flex-col justify-between hover:border-gold/40 transition-all">' +
+          '<div>' +
+            '<div class="flex items-start justify-between gap-2">' +
+              '<i class="fa-solid ' + item.icon + ' text-violet text-base sm:text-lg mt-0.5"></i>' +
+              '<span class="text-[11px] sm:text-xs font-bold text-gold bg-charcoal px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full whitespace-nowrap">' + item.price + '</span>' +
+            '</div>' +
+            '<h3 class="mt-2.5 font-semibold text-charcoal text-[13px] sm:text-[14.5px] leading-snug">' + item.name + '</h3>' +
+            '<p class="mt-1.5 text-[11px] sm:text-[12.5px] text-slate leading-relaxed">' + item.desc + '</p>' +
+          '</div>' +
+        '</div>'
+      );
+    }).join('');
+  }
+
+  function renderModalAddons() {
+    const container = document.getElementById('modalAddonsContainer');
+    container.innerHTML = addOnData.map(function (item) {
+      return (
+        '<label class="flex items-center gap-2 glass-card hover:bg-white p-2 rounded-xl cursor-pointer transition-all border border-charcoal/10">' +
+          '<input type="checkbox" name="selectedAddons" value="' + item.name + ' (' + item.price + ')" class="w-3.5 h-3.5 rounded text-violet accent-violet focus:ring-0 cursor-pointer">' +
+          '<span class="text-charcoal leading-tight select-none">' + item.name + ' <strong class="text-violet">+' + item.price + '</strong></span>' +
+        '</label>'
+      );
+    }).join('');
+  }
+
+  /* DROPDOWN HANYA MEMASUKKAN TEMA YANG SUDAH READY */
+  function populateThemeDropdown() {
+    const temaSelect = document.getElementById('orderTema');
+    temaSelect.innerHTML = catalogData.map(function (item) {
+      if (item.isComingSoon) {
+        return '<option value="' + item.name + ' (Coming Soon)" disabled>' + item.name + ' (Coming Soon)</option>';
+      }
+      return '<option value="' + item.name + '">' + item.name + '</option>';
+    }).join('') + '<option value="Custom Tema Wedding Baru">✦ Request Tema Wedding Custom Baru</option>';
+  }
+
+  /* =========================================================
+     MODAL CONTROLLER (MUNCUL SAAT KLIK TOMBOL PESAN)
+  ========================================================= */
+  function openOrderModal(selectedThemeName) {
+    const modal = document.getElementById('orderModal');
+    modal.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+
+    if (selectedThemeName) {
+      const temaSelect = document.getElementById('orderTema');
+      for (let i = 0; i < temaSelect.options.length; i++) {
+        if (temaSelect.options[i].value === selectedThemeName) {
+          temaSelect.selectedIndex = i;
+          break;
+        }
+      }
+    }
+    setTimeout(function() {
+      document.getElementById('orderNama').focus();
+    }, 100);
+  }
+
+  function closeOrderModal() {
+    const modal = document.getElementById('orderModal');
+    modal.classList.add('hidden');
+    document.body.style.overflow = '';
+  }
+
+  document.getElementById('orderModal').addEventListener('click', function(e) {
+    if (e.target === this) {
+      closeOrderModal();
+    }
+  });
+
+  // Submit Handler Modal Form
+  document.getElementById('orderForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    const nama = document.getElementById('orderNama').value.trim();
+    const paket = document.getElementById('orderPaket').value;
+    const tema = document.getElementById('orderTema').value;
+    const tanggalRaw = document.getElementById('orderTanggal').value;
+    const lagu = document.getElementById('orderLagu').value.trim() || "Sesuai template katalog / Dibahas via chat";
+
+    if (!nama || !paket || !tema || !tanggalRaw) {
+      alert('Mohon lengkapi seluruh isian formulir ya.');
+      return;
+    }
+
+    const selectedAddons = [];
+    document.querySelectorAll('input[name="selectedAddons"]:checked').forEach(function (cb) {
+      selectedAddons.push(cb.value);
+    });
+    const addonText = selectedAddons.length > 0 ? selectedAddons.join('\n  - ') : 'Tidak ada (Paket Standar)';
+
+    const tanggal = new Date(tanggalRaw + 'T00:00:00').toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' });
+
+    const message = "Halo Senvite, saya ingin memesan UNDANGAN DIGITAL PERNIKAHAN dengan rincian berikut:\n\n" +
+      "• Calon Mempelai: " + nama + "\n" +
+      "• Pilihan Paket: " + paket + "\n" +
+      "• Tema Desain: " + tema + "\n" +
+      "• Tanggal Akad/Resepsi: " + tanggal + "\n" +
+      "• Request Lagu: " + lagu + "\n\n" +
+      "• Tambahan Add-On:\n  - " + addonText + "\n\n" +
+      "Mohon info langkah pengiriman materi video & data selanjutnya. Terima kasih!";
+
+    window.open(buildWaLink(message), '_blank');
+    closeOrderModal();
+  });
+
+  /* =========================================================
+     FAQ TOGGLE
+  ========================================================= */
+  function toggleFaq(button) {
+    const panel = button.nextElementSibling;
+    const icon = button.querySelector('.faq-chevron');
+    const willOpen = !panel.classList.contains('is-open');
+
+    document.querySelectorAll('.accordion-panel').forEach(function (p) { p.classList.remove('is-open'); });
+    document.querySelectorAll('.faq-chevron').forEach(function (c) { c.classList.remove('is-open'); });
+
+    if (willOpen) {
+      panel.classList.add('is-open');
+      icon.classList.add('is-open');
+    }
+  }
+
+  /* =========================================================
+     NAVBAR & EVENTS
+  ========================================================= */
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const menuIcon = document.getElementById('menuIcon');
+
+  function toggleMobileMenu() {
+    mobileMenu.classList.toggle('hidden');
+    menuIcon.classList.toggle('fa-bars');
+    menuIcon.classList.toggle('fa-xmark');
+  }
+
+  menuBtn.addEventListener('click', toggleMobileMenu);
+
+  document.querySelectorAll('#mobileMenu a').forEach(function (a) {
+    a.addEventListener('click', function () {
+      mobileMenu.classList.add('hidden');
+      menuIcon.classList.add('fa-bars');
+      menuIcon.classList.remove('fa-xmark');
+    });
+  });
+
+  window.addEventListener('scroll', function () {
+    const header = document.getElementById('siteHeader');
+    if (window.scrollY > 12) {
+      header.classList.add('shadow-sm');
+    } else {
+      header.classList.remove('shadow-sm');
+    }
+  });
+
+  const generalWaText = "Halo Senvite, saya ingin konsultasi mengenai undangan pernikahan digital.";
+  document.getElementById('footerWaLink').href = buildWaLink(generalWaText);
+  document.getElementById('floatingWaLink').href = buildWaLink(generalWaText);
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Inisialisasi awal
+  renderFilterTabs();
+  renderCatalogGrid();
+  renderAddOns();
+  populateThemeDropdown();
+  renderModalAddons();
+</script>
+
+</body>
+</html>

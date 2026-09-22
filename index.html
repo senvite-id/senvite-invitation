@@ -213,7 +213,7 @@
       </div>
       <div class="glass-card p-3 sm:p-4 rounded-xl sm:rounded-2xl">
         <p class="text-lg sm:text-3xl font-bold text-violet">Link Web</p>
-        <p class="text-[10.5px] sm:text-sm text-slate mt-0.5">Mudah dibagiikan</p>
+        <p class="text-[10.5px] sm:text-sm text-slate mt-0.5">Mudah dibagikan</p>
       </div>
       <div class="glass-card p-3 sm:p-4 rounded-xl sm:rounded-2xl">
         <p class="text-lg sm:text-3xl font-bold text-violet">File</p>
@@ -261,7 +261,6 @@
                 Tersedia file video MP4 siap posting dan tautan web cover personal.
               </p>
             </div>
-            
           </div>
 
           <!-- Poin 2: Paket Fleksibel -->
@@ -275,7 +274,6 @@
                 Pilihan paket hemat mulai dari video only hingga paket eksklusif kilat.
               </p>
             </div>
-           
           </div>
 
           <!-- Poin 3: Katalog Tema -->
@@ -289,7 +287,6 @@
                 Desain adat nusantara, syar'i modern, hingga nuansa mewah berkelas.
               </p>
             </div>
-            
           </div>
 
         </div>
@@ -484,10 +481,7 @@
         </button>
         <div class="accordion-panel px-4 sm:px-6">
           <p class="text-[11.5px] sm:text-sm text-slate leading-relaxed pb-3.5 sm:pb-5">
-            Tamu menerima link personal lewat WhatsApp/ Media Sosial lainnya. Begitu link dibuka di HP, layar menampilkan <strong>Cover Pembuka
-            </strong> bertuliskan nama tamu tersebut. Saat tombol 'Buka Undangan' ditekan, cover otomatis bergeser ke atas dan langsung <strong>memutar video pernikahan (MP4)
-
-            </strong> secara lancar tergantung koneksi internet.
+            Tamu menerima link personal lewat WhatsApp/ Media Sosial lainnya. Begitu link dibuka di HP, layar menampilkan <strong>Cover Pembuka</strong> bertuliskan nama tamu tersebut. Saat tombol 'Buka Undangan' ditekan, cover terbuka dan langsung <strong>memutar video pernikahan (MP4)</strong> secara lancar tergantung koneksi internet.
           </p>
         </div>
       </div>
@@ -500,8 +494,7 @@
         </button>
         <div class="accordion-panel px-4 sm:px-6">
           <p class="text-[11.5px] sm:text-sm text-slate leading-relaxed pb-3.5 sm:pb-5">
-            Tidak ada. Senvite fokus pada <strong>video undangan MP4</strong> dan <strong>web cover</strong> yang estetik, 
-            sehingga tamu dapat langsung menonton video pernikahan tanpa harus scroll scroll website.
+            Tidak ada. Senvite fokus pada <strong>video undangan MP4</strong> dan <strong>web cover</strong> yang estetik, sehingga tamu dapat langsung menonton video pernikahan tanpa harus scroll scroll website.
           </p>
         </div>
       </div>
@@ -514,9 +507,7 @@
         </button>
         <div class="accordion-panel px-4 sm:px-6">
           <p class="text-[11.5px] sm:text-sm text-slate leading-relaxed pb-3.5 sm:pb-5">
-            Mudah dan <strong>100% UNLIMITED</strong>. Kamu tidak perlu mengetik ratusan nama tamu ke sistem kami satu per satu. 
-            Cukup satu link web, kamu hanya tinggal menambahkan parameter di akhir link (contoh: <code>undangan.com/?to=Budi+Santoso</code>). 
-            Teks di cover web akan otomatis berganti sesuai nama tamu tersebut.
+            Mudah dan <strong>100% UNLIMITED</strong>. Kamu tidak perlu mengetik ratusan nama tamu ke sistem kami satu per satu. Cukup satu link web, kamu hanya tinggal menambahkan parameter di akhir link (contoh: <code>undangan.com/?to=Budi+Santoso</code>). Teks di cover web akan otomatis berganti sesuai nama tamu tersebut.
           </p>
         </div>
       </div>
@@ -643,7 +634,7 @@
         </div>
       </div>
 
-      <button type="submit" class="w-full flex items-center justify-center gap-2 bg-emerald text-ivory rounded-full py-3 text-xs sm:text-base font-semibold hover:brightness-110 transition-all shadow-md shadow-emerald/20">
+      <button type="submit" id="btnSubmitOrder" class="w-full flex items-center justify-center gap-2 bg-emerald text-ivory rounded-full py-3 text-xs sm:text-base font-semibold hover:brightness-110 transition-all shadow-md shadow-emerald/20 cursor-pointer">
         <i class="fa-brands fa-whatsapp text-sm sm:text-lg"></i> Kirim Pesanan ke Admin
       </button>
     </form>
@@ -720,7 +711,7 @@
   }
 
   /* =========================================================
-     KATALOG DATA (DITAMBAH STATUS COMING SOON)
+     KATALOG DATA
   ========================================================= */
   const catalogData = [
     { 
@@ -815,7 +806,7 @@
       const label = c[1];
       const active = key === currentCategory;
       const activeClass = active ? "bg-violet text-ivory border-violet shadow-sm" : "glass-card text-charcoal border-white/80";
-      return '<button data-filter="' + key + '" onclick="filterSelection(\'' + key + '\')" class="filter-tab ' + activeClass + ' text-[11px] sm:text-sm font-medium px-3 py-1 sm:px-4 sm:py-1.5 rounded-full border">' + label + '</button>';
+      return '<button type="button" data-filter="' + key + '" onclick="filterSelection(\'' + key + '\')" class="filter-tab ' + activeClass + ' text-[11px] sm:text-sm font-medium px-3 py-1 sm:px-4 sm:py-1.5 rounded-full border">' + label + '</button>';
     }).join('');
   }
 
@@ -828,7 +819,7 @@
     renderCatalogGrid();
   }
 
-  /* RENDER CARD (TOMBOL RESPONSIF ANTI-TUMPUK) */
+  /* RENDER CARD */
   function renderCard(item) {
     const aspect = "aspect-[9/16]";
 
@@ -848,7 +839,7 @@
             '<h3 class="mt-2 sm:mt-3 font-bold text-charcoal/70 text-[11.5px] sm:text-[15px] leading-snug line-clamp-1">' + item.name + '</h3>' +
           '</div>' +
           '<div class="mt-2 sm:mt-3">' +
-            '<button disabled class="w-full inline-flex items-center justify-center text-[10px] sm:text-[12.5px] font-semibold text-center bg-charcoal/10 text-slate/70 rounded-full py-1.5 cursor-not-allowed">' +
+            '<button type="button" disabled class="w-full inline-flex items-center justify-center text-[10px] sm:text-[12.5px] font-semibold text-center bg-charcoal/10 text-slate/70 rounded-full py-1.5 cursor-not-allowed">' +
               'Segera Hadir' +
             '</button>' +
           '</div>' +
@@ -869,7 +860,7 @@
           '<a href="' + item.demoUrl + '" target="_blank" rel="noopener" class="flex-1 min-w-0 inline-flex items-center justify-center gap-1 text-[10px] sm:text-[12px] font-semibold text-center glass-card border border-charcoal/20 text-charcoal rounded-full py-1.5 hover:border-violet hover:text-violet hover:bg-white transition-all shadow-sm">' +
             '<i class="fa-regular fa-eye text-[10px]"></i><span class="truncate">Preview</span>' +
           '</a>' +
-          '<button onclick="openOrderModal(\'' + item.name.replace(/'/g, "\\'") + '\')" class="flex-1 min-w-0 inline-flex items-center justify-center gap-1 text-[10px] sm:text-[12px] font-semibold text-center bg-violet text-ivory rounded-full py-1.5 hover:bg-violet-dark transition-all shadow-sm shadow-violet/20">' +
+          '<button type="button" onclick="openOrderModal(\'' + item.name.replace(/'/g, "\\'") + '\')" class="flex-1 min-w-0 inline-flex items-center justify-center gap-1 text-[10px] sm:text-[12px] font-semibold text-center bg-violet text-ivory rounded-full py-1.5 hover:bg-violet-dark transition-all shadow-sm shadow-violet/20 cursor-pointer">' +
             '<i class="fa-solid fa-cart-shopping text-[9px]"></i><span class="truncate">Pesan</span>' +
           '</button>' +
         '</div>' +
@@ -890,7 +881,7 @@
   }
 
   /* =========================================================
-     ADD-ON DATA KHUSUS
+     ADD-ON DATA
   ========================================================= */
   const addOnData = [
     { 
@@ -979,7 +970,7 @@
     }).join('');
   }
 
-  /* DROPDOWN HANYA MEMASUKKAN TEMA YANG SUDAH READY */
+  /* DROPDOWN HANYA MEMASUKKAN TEMA READY (OPSI CUSTOM SUDAH DIHILANGKAN) */
   function populateThemeDropdown() {
     const temaSelect = document.getElementById('orderTema');
     temaSelect.innerHTML = catalogData.map(function (item) {
@@ -987,11 +978,11 @@
         return '<option value="' + item.name + ' (Coming Soon)" disabled>' + item.name + ' (Coming Soon)</option>';
       }
       return '<option value="' + item.name + '">' + item.name + '</option>';
-    }).join('') + '<option value="Custom Tema Wedding Baru">✦ Request Tema Wedding Custom Baru</option>';
+    }).join('');
   }
 
   /* =========================================================
-     MODAL CONTROLLER (MUNCUL SAAT KLIK TOMBOL PESAN)
+     MODAL CONTROLLER
   ========================================================= */
   function openOrderModal(selectedThemeName) {
     const modal = document.getElementById('orderModal');
@@ -1024,17 +1015,15 @@
     }
   });
 
-  // Submit Handler Modal Form
+  /* FORM SUBMIT HANDLER - DIRECT LINK KE WA TANPA BLOKIR */
   document.getElementById('orderForm').addEventListener('submit', function (e) {
     e.preventDefault();
     const nama = document.getElementById('orderNama').value.trim();
     const paket = document.getElementById('orderPaket').value;
     const tema = document.getElementById('orderTema').value;
-    const tanggalRaw = document.getElementById('orderTanggal').value;
-    const lagu = document.getElementById('orderLagu').value.trim() || "Sesuai template katalog / Dibahas via chat";
 
-    if (!nama || !paket || !tema || !tanggalRaw) {
-      alert('Mohon lengkapi seluruh isian formulir ya.');
+    if (!nama || !paket || !tema) {
+      alert('Mohon lengkapi isian formulir ya.');
       return;
     }
 
@@ -1044,19 +1033,17 @@
     });
     const addonText = selectedAddons.length > 0 ? selectedAddons.join('\n  - ') : 'Tidak ada (Paket Standar)';
 
-    const tanggal = new Date(tanggalRaw + 'T00:00:00').toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' });
-
-    const message = "Halo Senvite, saya ingin memesan UNDANGAN DIGITAL PERNIKAHAN dengan rincian berikut:\n\n" +
+    const message = "Halo Admin Senvite, saya ingin memesan UNDANGAN DIGITAL PERNIKAHAN dengan rincian berikut:\n\n" +
       "• Calon Mempelai: " + nama + "\n" +
       "• Pilihan Paket: " + paket + "\n" +
-      "• Tema Desain: " + tema + "\n" +
-      "• Tanggal Akad/Resepsi: " + tanggal + "\n" +
-      "• Request Lagu: " + lagu + "\n\n" +
+      "• Tema Desain: " + tema + "\n\n" +
       "• Tambahan Add-On:\n  - " + addonText + "\n\n" +
-      "Mohon info langkah pengiriman materi video & data selanjutnya. Terima kasih!";
+      "Mohon kirimkan format pengisian data mempelai & info selanjutnya ya. Terima kasih!";
 
-    window.open(buildWaLink(message), '_blank');
+    const targetUrl = buildWaLink(message);
+
     closeOrderModal();
+    window.location.href = targetUrl;
   });
 
   /* =========================================================
@@ -1108,7 +1095,7 @@
     }
   });
 
-  const generalWaText = "Halo Senvite, saya ingin konsultasi mengenai undangan pernikahan digital.";
+  const generalWaText = "Halo Senvite, saya ingin bertanya mengenai undangan pernikahan digital.";
   document.getElementById('footerWaLink').href = buildWaLink(generalWaText);
   document.getElementById('floatingWaLink').href = buildWaLink(generalWaText);
   document.getElementById('year').textContent = new Date().getFullYear();
